@@ -3,6 +3,7 @@ import { getMovies } from "../services/fakeMovieService";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Like from "../common/like";
 import Pagination from "../common/pagination";
+import { paginate } from "../utils/paginate";
 
 class Movies extends Component {
   state = {
@@ -25,14 +26,16 @@ class Movies extends Component {
   };
 
   handlePageChange = page => {
-    this.setState({currentPage: page});
+    this.setState({ currentPage: page });
   };
 
   render() {
     const { length: count } = this.state.movies;
-    const { currentPage, pageSize } = this.state;
+    const { currentPage, pageSize, movies: allMovies } = this.state;
 
     if (count === 0) return <p>There are no Movies to display!</p>;
+
+    const movies = paginate(allMovies, currentPage, pageSize);
 
     return (
       <div>
@@ -49,7 +52,7 @@ class Movies extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.movies.map(movie => (
+            {movies.map(movie => (
               <tr key={movie._id}>
                 <td>{movie.title}</td>
                 <td>{movie.genre.name}</td>
