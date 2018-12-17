@@ -17,9 +17,9 @@ const Pagination = props => {
             key={page}
             className={page === currentPage ? "page-item active" : "page-item"}
           >
-            <a className="page-link" href=' ' onClick={() => onPageChange(page)}>
+            <button className="page-link" onClick={() => onPageChange(page)}>
               {page}
-            </a>
+            </button>
           </li>
         ))}
       </ul>
@@ -30,7 +30,7 @@ const Pagination = props => {
 Pagination.propTypes = {
   itemsCount: PropTypes.number.isRequired,
   pageSize: PropTypes.number.isRequired,
-  // currentSize: PropTypes.number.isRequired,
+//   currentSize: PropTypes.number.isRequired,
   onPageChange: PropTypes.number.isRequired
 };
 
