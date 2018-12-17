@@ -41,7 +41,6 @@ class Movies extends Component {
 
   handleGenreSelect = genre => {
     this.setState({ selectedGenre: genre, currentPage: 1 });
-    console.log(genre);
   };
 
   handleSort = sortColumn => {
