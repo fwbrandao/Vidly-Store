@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 const FilterGenre = props => {
   const {
@@ -11,7 +11,7 @@ const FilterGenre = props => {
 
   return (
     <ul className="list-group">
-    
+
       {items.map(item => (
         <li
           className={
