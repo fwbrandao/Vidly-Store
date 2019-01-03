@@ -1,14 +1,12 @@
 import React from "react";
 
-const FilterGenre = props => {
-  const {
+const FilterGenre = ({
     items,
     textProperty,
     valueProperty,
     onItemSelect,
     selectedItem
-  } = props;
-
+  }) => {
   return (
     <ul className="list-group">
 
