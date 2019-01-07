@@ -6,6 +6,7 @@ import FilterGenre from "./common/filterGenre";
 import { getGenres } from "../services/fakeGenreService";
 import MoviesTable from "./moviesTable";
 import _ from 'lodash';
+import "./movies.css";
 
 class Movies extends Component {
   state = {
@@ -90,7 +91,7 @@ class Movies extends Component {
         </div>
 
         <div className="col-md-9">
-          <p>Showing {totalCount} Movies.</p>
+          <p className="moviesCount" ><span>Showing {totalCount} Movies.</span></p>
           <MoviesTable
             movies={movies}
             sortColumn={sortColumn}
