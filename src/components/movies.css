@@ -1,0 +1,18 @@
+.moviesCount {
+    line-height: 2;
+    width: 300px;
+    margin: 20px auto;
+}
+
+.moviesCount span {
+    font-family: 'Major Mono Display', monospace;
+    background-color: #9A0BFF;
+    font-size: 20px;
+    color: #fff;
+    display: inline;
+    padding: 0.45rem;
+
+    /* Needs prefixing */
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
