@@ -1,18 +1,43 @@
 .moviesCount {
     line-height: 2;
     width: 300px;
-    margin: 20px auto;
+    margin: 20px auto 20px 0;
 }
 
 .moviesCount span {
-    font-family: 'Major Mono Display', monospace;
     background-color: #9A0BFF;
     font-size: 20px;
     color: #fff;
     display: inline;
     padding: 0.45rem;
+    border-radius: 5px;
 
     /* Needs prefixing */
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
 }
+
+/* DEMO-SPECIFIC STYLES */
+.typewriter h1 {
+    color: black;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation:
+      typing 3.5s steps(30, end),
+      blink-caret .5s step-end infinite;
+  }
+
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: transparent }
+  }

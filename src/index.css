@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0 0 0 0;
-  font-family: sans-serif;
+  font-family: 'Major Mono Display', monospace !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

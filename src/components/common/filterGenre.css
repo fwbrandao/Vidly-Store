@@ -3,10 +3,16 @@
     font-family: 'Major Mono Display', monospace;
     transition: background-color 500ms linear,color 500ms linear,box-shadow 500ms linear;
     justify-content: flex-end;
+    font-weight: 500 !important;
 }
 
 .list-group-item:hover {
     background-color: #9A0BFF !important;
     color: white;
     box-shadow: 0 0.3rem 0.5rem 0 rgba(149,112,76,0.4), -2rem 0 #9A0BFF inset;
+}
+
+.list-group-item.active {
+    background-color: #9A0BFF !important;
+    border-color: #9A0BFF !important;
 }

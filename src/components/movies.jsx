@@ -5,6 +5,7 @@ import { paginate } from "../utils/paginate";
 import FilterGenre from "./common/filterGenre";
 import { getGenres } from "../services/fakeGenreService";
 import MoviesTable from "./moviesTable";
+import PopularMovies from "./popular/popularMovies";
 import _ from 'lodash';
 import "./movies.css";
 
@@ -91,6 +92,9 @@ class Movies extends Component {
         </div>
 
         <div className="col-md-9">
+        <div class="typewriter">
+            <h1>Welcome to Vidly</h1>
+        </div>
           <p className="moviesCount" ><span>Showing {totalCount} Movies.</span></p>
           <MoviesTable
             movies={movies}
@@ -105,6 +109,9 @@ class Movies extends Component {
             onPageChange={this.handlePageChange}
             currentPage={currentPage}
           />
+        </div>
+        <div>
+            <PopularMovies />
         </div>
       </div>
     );

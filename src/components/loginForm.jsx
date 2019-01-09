@@ -19,9 +19,10 @@ class LoginForm extends Component {
     render() {
         const { account } = this.state;
         return  <div >
-                    <h1>Login</h1>
+                <h1>Login</h1>
                     <form onSubmit={this.handleSubmit}>
                         <Input
+                            autoFocus
                             name="username"
                             value={account.username}
                             label="Username"
@@ -36,7 +37,7 @@ class LoginForm extends Component {
                         <button className="btn btn-primary">Login</button>
                     </form>
                 </div>;
-    }
-}
+            }
+        }
 
 export default LoginForm;
