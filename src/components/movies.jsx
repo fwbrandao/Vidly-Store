@@ -92,7 +92,7 @@ class Movies extends Component {
         </div>
 
         <div className="col-md-9">
-        <div class="typewriter">
+        <div className="typewriter">
             <h1>Welcome to Vidly</h1>
         </div>
           <p className="moviesCount" ><span>Showing {totalCount} Movies.</span></p>

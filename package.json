@@ -9,6 +9,7 @@
     "bootstrap": "^4.1.1",
     "font-awesome": "^4.7.0",
     "i": "^0.3.6",
+    "joi-browser": "^13.4.0",
     "lodash": "^4.17.10",
     "npm": "^6.4.1",
     "prop-types": "^15.6.2",

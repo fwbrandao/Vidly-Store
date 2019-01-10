@@ -18,13 +18,13 @@ class PopularMovies extends Component {
                         <time datetime="2019-01-01">Jan 1, 2019</time>
                     </div>
                     </div>
-                    <h2><a className="article-card-header read-article">Terminator Salvation</a></h2>
+                    <h2><a className="article-card-header read-article" href="/">Terminator Salvation</a></h2>
                 </header>
                 <div className="mini-article-meta">
                     <div className="mini-article-byline">
                         <div className="author-avatar">
-                            <a className="author-name">
-                                <img className="avatar avatar-80 photo" />
+                            <a className="author-name" href="/">
+                                <img className="avatar avatar-80 photo" alt=""/>
                             </a>
                             <svg className="half-circle">
                             </svg>
