@@ -6,13 +6,23 @@
     display: flex;
     width: calc(100vw - 71px);
     margin: 0 0 8rem 0;
-    padding: 2rem 0;
+    padding: 5rem 0;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+
+}
+
+.mini-card:focus-within, .mini-card:hover {
+    -webkit-transform: translate(0,-1rem);
+    transform: translate(0,-1rem);
+}
+
+.popular-articles .mini-card {
+    scroll-snap-align: start;
 }
 
 .header-card {
-    background-image: linear-gradient(to top,#ff8a00,#da1b60);
+    background-image: linear-gradient(to top,rgba(131, 79, 168, 0.788),#9A0BFF);
     position: relative;
     border-radius: 16px;
     padding: 2rem;
@@ -36,4 +46,104 @@
     margin: 0;
     font-size: 1.4rem;
     color: white;
+}
+
+.mini-card {
+    width: 300px;
+    min-height: 350px;
+    padding: 1.5rem;
+    border-radius: 16px;
+    background: #17141d;
+    -webkit-box-shadow: -1rem 0 3rem #000;
+    box-shadow: -1rem 0 3rem #000;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-transition: .2s;
+    transition: .2s;
+    margin: 0;
+}
+
+.mini-card-grid {
+    display: flex;
+    margin-right: 30px;
+}
+
+.module {
+    clear: both;
+    margin: 0 0 1rem 0;
+    position: relative;
+}
+
+.mini-article-card-header {
+    margin-bottom: auto;
+}
+
+.mini-article-subhead {
+    font-size: 14px;
+    margin: 0 0 1rem 0 ;
+    color: white;
+}
+
+time {
+    color: #7a7a8c;
+    box-sizing: border-box;
+}
+
+.mini-card h2 {
+    font-size: 20px;
+    margin: .25rem 0 auto 0;
+    font-weight: 700;
+}
+
+h2 a {
+    color: inherit;
+    border: 0;
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+}
+
+.mini-article-meta {
+    font-size: 14px;
+}
+
+.mini-article-byline {
+    margin: 3rem 0 0 0;
+    display: grid;
+    grid-template-columns: 75px 1fr;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.author-avatar {
+    grid-area: avatar;
+    -ms-flex-item-align: start;
+    align-self: start;
+    position: relative;
+}
+
+.mini-article-meta .author-name {
+    display: block;
+    position: relative;
+}
+
+.author-name, .comments-link {
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+}
+
+.mini-card:hover~.mini-card {
+    -webkit-transform: translateX(130px);
+    transform: translateX(130px);
+}
+
+.mini-card:not(:first-child) {
+    margin-left: -130px;
 }

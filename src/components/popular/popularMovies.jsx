@@ -1,14 +1,35 @@
 import React, { Component } from 'react';
+import { getMovies } from "../../services/fakeMovieService";
 import './popularMovies.css'
 
+
 class PopularMovies extends Component {
+    state = {
+        movies: []
+    };
+
+    componentDidMount() {
+        this.setState({ movies: getMovies()});
+      }
+
+      getPageData = () => {
+        const {
+                movies
+                } = this.state;
+
+        return { data: movies };
+        };
+
     render() {
+
+        const { data: movies } = this.getPageData();
         return (
         <div className="popular-articles">
             <header className="popular-header header-card white-underline-links">
                 <h2 className="header-card-title">Popular Movies</h2>
                 <p className="header-card-sponsor">January</p>
             </header>
+            {movies.map(movie => (
             <div className="mini-card-grid">
                 <article className="mini-card module module-article article">
                 <header className="mini-article-card-header">
@@ -18,7 +39,7 @@ class PopularMovies extends Component {
                         <time datetime="2019-01-01">Jan 1, 2019</time>
                     </div>
                     </div>
-                    <h2><a className="article-card-header read-article" href="/">Terminator Salvation</a></h2>
+                    <h2><a className="article-card-header read-article" href="/">{movie.name}</a></h2>
                 </header>
                 <div className="mini-article-meta">
                     <div className="mini-article-byline">
@@ -33,6 +54,7 @@ class PopularMovies extends Component {
                 </div>
                 </article>
             </div>
+            ))}
         </div>
         );
     }
