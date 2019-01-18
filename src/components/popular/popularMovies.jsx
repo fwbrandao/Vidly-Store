@@ -16,6 +16,7 @@ class PopularMovies extends Component {
         const {
                 movies
                 } = this.state;
+                console.log(movies);
 
         return { data: movies };
         };
@@ -24,7 +25,7 @@ class PopularMovies extends Component {
 
         const { data: movies } = this.getPageData();
         return (
-        <div className="popular-articles">
+        <div className="container popular-articles">
             <header className="popular-header header-card white-underline-links">
                 <h2 className="header-card-title">Popular Movies</h2>
                 <p className="header-card-sponsor">January</p>
@@ -39,7 +40,8 @@ class PopularMovies extends Component {
                         <time datetime="2019-01-01">Jan 1, 2019</time>
                     </div>
                     </div>
-                    <h2><a className="article-card-header read-article" href="/">{movie.name}</a></h2>
+                    <h2><a className="article-card-header read-article" href="/">{movie.title}</a></h2>
+                    <p className="mini-article-subhead">{movie.genre.name}</p>
                 </header>
                 <div className="mini-article-meta">
                     <div className="mini-article-byline">

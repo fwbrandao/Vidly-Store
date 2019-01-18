@@ -4,12 +4,10 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    width: calc(100vw - 71px);
     margin: 0 0 8rem 0;
     padding: 5rem 0;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-
 }
 
 .mini-card:focus-within, .mini-card:hover {
@@ -85,13 +83,14 @@
 
 .mini-article-subhead {
     font-size: 14px;
-    margin: 0 0 1rem 0 ;
+    margin: 0 1rem 1rem 0 !important;
     color: white;
 }
 
 time {
-    color: #7a7a8c;
+    color: yellow;
     box-sizing: border-box;
+    margin-left: 10px;
 }
 
 .mini-card h2 {
