@@ -17,7 +17,7 @@ class RegisterForm extends Form {
     shema = {
         username: Joi.string().required().label('Username'),
         password: Joi.string().required().label('Password'),
-        name: Joi.string().required().label('Name')
+        // name: Joi.string().required().label('Name')
     }
 
     render() {
@@ -27,7 +27,7 @@ class RegisterForm extends Form {
                     {this.renderInput('username', 'Username')}
                     {this.renderInput('password', 'Password')}
                     {this.renderInput('name', 'Name')}
-                    {/* {this.renderButton('Login')} */}
+                    {this.renderButton('Register')}
                 </form>
         </div> );
     }
