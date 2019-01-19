@@ -25,6 +25,9 @@ class Form extends Component {
         if (name === 'password'){
             if(value.trim() === '') return "Password is required.";
         }
+        if (name === 'name'){
+            if(value.trim() === '') return "Name is required.";
+        }
     };
 
     handleSubmit = e => {
