@@ -12,7 +12,6 @@ class LoginForm extends Form {
     schema = {
         username: Joi.string().required().label('Username'),
         password: Joi.string().required().label('Password'),
-        // name: Joi.string().required().label('Name')
     }
 
     doSubmit = () => {
