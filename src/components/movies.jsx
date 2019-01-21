@@ -8,6 +8,7 @@ import MoviesTable from "./moviesTable";
 import PopularMovies from "./popular/popularMovies";
 import _ from 'lodash';
 import "./movies.css";
+import { NavLink } from 'react-router-dom';
 
 class Movies extends Component {
   state = {
@@ -95,7 +96,8 @@ class Movies extends Component {
         <div className="typewriter">
             <h1>Welcome to Vidly</h1>
         </div>
-          <p className="moviesCount" ><span>Showing {totalCount} Movies.</span></p>
+        <NavLink className="btn btn-primary" to="/movies/:id">Add New Movie</NavLink>
+        <p className="moviesCount" ><span>Showing {totalCount} Movies.</span></p>
           <MoviesTable
             movies={movies}
             sortColumn={sortColumn}
