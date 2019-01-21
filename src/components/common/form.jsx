@@ -28,6 +28,9 @@ class Form extends Component {
         if (name === 'name'){
             if(value.trim() === '') return "Name is required.";
         }
+        if (name === 'title'){
+            if(value.trim() === '') return "Title is required.";
+        }
     };
 
     handleSubmit = e => {
