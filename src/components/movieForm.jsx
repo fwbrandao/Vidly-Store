@@ -21,11 +21,11 @@ class MovieForm extends Form {
     };
 
     render() {
-        const { history } = this.props;
+        const { history, match } = this.props;
 
         return (
             <div>
-                <h1>Movie Form {} </h1>
+                <h1>Movie Form {match.params.id} </h1>
                 <form onSubmit={this.handleSubmit}>
                     {this.renderInput('title', 'Title')}
                     {this.renderInput('genre', 'Genre')}
