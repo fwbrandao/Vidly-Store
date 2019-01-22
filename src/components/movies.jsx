@@ -96,7 +96,7 @@ class Movies extends Component {
         <div className="typewriter">
             <h1>Welcome to Vidly</h1>
         </div>
-        <NavLink className="btn btn-primary addBtn" to="/movies/:id">Add New Movie</NavLink>
+        <NavLink className="btn btn-primary addBtn" to="/movies/new">Add New Movie</NavLink>
         <p className="moviesCount" ><span>Showing {totalCount} Movies.</span></p>
           <MoviesTable
             movies={movies}
