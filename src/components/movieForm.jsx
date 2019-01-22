@@ -4,6 +4,7 @@ import { Joi } from 'joi-browser';
 
 class MovieForm extends Form {
     state = {
+        genres: [],
         data: { title: '', genre: '', numberInStock: '', rate: ''},
         errors: {}
     };
@@ -21,14 +22,21 @@ class MovieForm extends Form {
     };
 
     render() {
-        const { history, match } = this.props;
+        const { history, match, genres } = this.props;
 
         return (
             <div>
                 <h1>Movie Form {match.params.id} </h1>
                 <form onSubmit={this.handleSubmit}>
                     {this.renderInput('title', 'Title')}
-                    {this.renderInput('genre', 'Genre')}
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Genre</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+
+                                <option>{this.state.genres.name}</option>
+                            </select>
+                        </div>
+
                     {this.renderInput('numberInStock', 'Number in Stock')}
                     {this.renderInput('rate', 'Rate')}
                 </form>
