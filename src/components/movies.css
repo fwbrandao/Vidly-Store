@@ -6,7 +6,7 @@
 
 .moviesCount span {
     background-color: #9A0BFF;
-    font-size: 20px;
+    font-size: 15px !important;
     color: #fff;
     display: inline;
     padding: 0.45rem;
@@ -41,3 +41,16 @@
     from, to { border-color: transparent }
     50% { border-color: transparent }
   }
+.addBtn {
+    margin-top: 10px;
+    font-size: 15px !important;
+    color: black !important;
+    background-color: #fff !important;
+    border: 1px solid black !important;
+}
+
+.addBtn:hover {
+    color: #fff !important;
+    background-color: #9A0BFF !important;
+    border: 1px solid white !important;
+}
