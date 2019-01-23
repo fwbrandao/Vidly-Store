@@ -15,6 +15,6 @@ const Select = ({ name, label, options, error, ...rest }) => {
                 {error && <div className="alert alert-danger">{error}</div>}
             </div>
     );
-}
+};
 
 export default Select;

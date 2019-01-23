@@ -6,9 +6,9 @@ import FilterGenre from "./common/filterGenre";
 import { getGenres } from "../services/fakeGenreService";
 import MoviesTable from "./moviesTable";
 import PopularMovies from "./popular/popularMovies";
+import { NavLink } from 'react-router-dom';
 import _ from 'lodash';
 import "./movies.css";
-import { NavLink } from 'react-router-dom';
 
 class Movies extends Component {
   state = {

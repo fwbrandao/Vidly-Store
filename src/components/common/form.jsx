@@ -20,27 +20,10 @@ class Form extends Component {
     };
 
     validateProperty = ({name, value}) => {
-        if (name === 'username'){
-            if(value.trim() === '') return "Username is required.";
-        }
-        if (name === 'password'){
-            if(value.trim() === '') return "Password is required.";
-        }
-        if (name === 'name'){
-            if(value.trim() === '') return "Name is required.";
-        }
-        if (name === 'title'){
-            if(value.trim() === '') return "Title is required.";
-        }
-        if (name === 'genre'){
-            if(value.trim() === '') return "Genre is required.";
-        }
-        if (name === 'numberInStock'){
-            if(value.trim() === '') return "Number In Stock is required.";
-        }
-        if (name === 'rate'){
-            if(value.trim() === '') return "Rate is required.";
-        }
+        const obj = { [name]: value };
+        const schema = { [name]: this.schema[name] };
+        const { error } = Joi.validate(obj, schema);
+        return error ? error.details[0].message : null;
     };
 
     handleSubmit = e => {
