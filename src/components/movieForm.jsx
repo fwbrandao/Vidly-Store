@@ -1,8 +1,8 @@
 import React from 'react';
-import Form from './common/form';
 import Joi  from 'joi-browser';
-import { getGenres } from '../services/fakeGenreService';
+import Form from './common/form';
 import { getMovie, saveMovie } from '../services/fakeMovieService';
+import { getGenres } from '../services/fakeGenreService';
 
 class MovieForm extends Form {
     state = {
@@ -55,15 +55,15 @@ class MovieForm extends Form {
             <div>
                 <h1>Movie Form</h1>
                 <form onSubmit={this.handleSubmit}>
-                    {this.renderInput('title', 'Title')}
-                    {this.renderSelect('genreId', 'Genre', this.state.genres)}
-                    {this.renderInput('numberInStock', 'Number in Stock', 'number')}
-                    {this.renderInput('dailyRentalRate', 'Rate')}
-                    {this.renderButton('Save')}
+                {this.renderInput("title", "Title")}
+                {this.renderSelect("genreId", "Genre", this.state.genres)}
+                {this.renderInput("numberInStock", "Number in Stock", "number")}
+                {this.renderInput("dailyRentalRate", "Rate")}
+                {this.renderButton("Save")}
                 </form>
             </div>
         );
     }
-};
+}
 
 export default MovieForm;
