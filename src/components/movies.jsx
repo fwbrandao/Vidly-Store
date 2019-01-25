@@ -6,7 +6,7 @@ import FilterGenre from "./common/filterGenre";
 import { getGenres } from "../services/fakeGenreService";
 import MoviesTable from "./moviesTable";
 import PopularMovies from "./popular/popularMovies";
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import _ from 'lodash';
 import "./movies.css";
 
@@ -96,7 +96,7 @@ class Movies extends Component {
         <div className="typewriter">
             <h1>Welcome to Vidly</h1>
         </div>
-        <NavLink className="btn btn-primary addBtn" to="/movies/new">Add New Movie</NavLink>
+        <Link className="btn btn-primary addBtn" to="/movies/new">Add New Movie</Link>
         <p className="moviesCount" ><span>Showing {totalCount} Movies.</span></p>
           <MoviesTable
             movies={movies}

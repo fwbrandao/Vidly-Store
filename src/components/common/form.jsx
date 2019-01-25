@@ -67,8 +67,8 @@ class Form extends Component {
             <Select
                 name={name}
                 value={data[name]}
-                options={options}
                 label={label}
+                options={options}
                 onChange={this.handleChange}
                 error={errors[name]}
             />
