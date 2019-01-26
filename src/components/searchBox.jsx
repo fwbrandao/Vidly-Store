@@ -11,7 +11,7 @@ const SearchBox = ({ value, onChange}) => {
                 name="query"
                 value={value}
                 onChange={e => onChange(e.currentTarget.value)}
-                placeholder="Search..."
+                placeholder="Search"
             />
         </div>
     );
