@@ -16,7 +16,6 @@ class PopularMovies extends Component {
         const {
                 movies
                 } = this.state;
-                console.log(movies);
 
         return { data: movies };
         };

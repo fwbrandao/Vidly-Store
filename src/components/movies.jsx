@@ -115,7 +115,7 @@ class Movies extends Component {
             to="/movies/new">Add New Movie
         </Link>
         <p className="moviesCount" ><span>Showing {totalCount} Movies.</span></p>
-        <SearchBox  value={searchQuery} onChange={this.handleSearch} />
+        <SearchBox value={searchQuery} onChange={this.handleSearch} />
           <MoviesTable
             movies={movies}
             sortColumn={sortColumn}

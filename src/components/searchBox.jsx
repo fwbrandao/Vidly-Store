@@ -6,7 +6,6 @@ const SearchBox = ({ value, onChange}) => {
     return (
         <div>
             <Input
-                // className="form-control my-3"
                 type="text"
                 name="query"
                 value={value}
