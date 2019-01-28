@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { getMovies } from "../../services/fakeMovieService";
 import './popularMovies.css'
 
@@ -40,7 +41,9 @@ class PopularMovies extends Component {
                         <time datetime="2019-01-01">Jan 1, 2019</time>
                     </div>
                     </div>
-                    <h2><a className="article-card-header read-article" href="/">{movie.title}</a></h2>
+                    <Link to={`/movies/${movie._id}`}>
+                    <h2><a className="article-card-header read-article">{movie.title}</a></h2>
+                    </Link>
                     <p className="mini-article-subhead">{movie.genre.name}</p>
                 </header>
                 <div className="mini-article-meta">

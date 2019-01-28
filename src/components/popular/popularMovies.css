@@ -103,7 +103,7 @@ h2 a {
     color: inherit;
     border: 0;
     display: inline-block;
-    color: #fff;
+    color: #fff !important;
     text-decoration: none;
 }
 
