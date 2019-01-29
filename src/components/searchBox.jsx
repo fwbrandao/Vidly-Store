@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Input from './common/input'
 
 const SearchBox = ({ value, onChange}) => {
@@ -6,7 +6,6 @@ const SearchBox = ({ value, onChange}) => {
     return (
         <div>
             <Input
-                className="form-control my-3"
                 type="text"
                 name="query"
                 value={value}
@@ -15,6 +14,6 @@ const SearchBox = ({ value, onChange}) => {
             />
         </div>
     );
-}
+};
 
 export default SearchBox;

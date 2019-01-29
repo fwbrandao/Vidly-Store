@@ -7,8 +7,8 @@ import PopularMovies from "./popular/popularMovies";
 import { getMovies, deleteMovie } from "../services/fakeMovieService";
 import { getGenres } from "../services/fakeGenreService";
 import { paginate } from "../utils/paginate";
-import _ from 'lodash';
 import SearchBox from './searchBox';
+import _ from 'lodash';
 import "./movies.css";
 
 class Movies extends Component {
@@ -89,6 +89,7 @@ class Movies extends Component {
         currentPage,
         pageSize,
         sortColumn,
+        searchQuery
         } = this.state;
 
         if (count === 0) return <p>There are no Movies to display!</p>;
@@ -114,7 +115,7 @@ class Movies extends Component {
             to="/movies/new">Add New Movie
         </Link>
         <p className="moviesCount" ><span>Showing {totalCount} Movies.</span></p>
-        <SearchBox  onChange={this.handleSearch} />
+        <SearchBox value={searchQuery} onChange={this.handleSearch} />
           <MoviesTable
             movies={movies}
             sortColumn={sortColumn}
