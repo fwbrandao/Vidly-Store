@@ -24,28 +24,27 @@ class Movies extends Component {
     };
 
     async componentDidMount() {
-        const { data } = await getGenres();
-        const genres = [{ _id: "", name: "All Genres" }, ...data];
+      const { data } = await getGenres();
+      const genres = [{ _id: "", name: "All Genres" }, ...data];
 
-        const { data: movies} = await getMovies();
-        this.setState({ movies, genres });
-      }
+      const { data: movies } = await getMovies();
+      this.setState({ movies, genres });
+    }
 
-  handleDelete = async movie => {
-    const originalMovie = this.state.movies;
-    const movies = originalMovie.movies.filter(m => m._id !== movie._id);
-    this.setState({ movies: movies });
+    handleDelete = async movie => {
+      const originalMovies = this.state.movies;
+      const movies = originalMovies.filter(m => m._id !== movie._id);
+      this.setState({ movies });
 
-    try {
+      try {
         await deleteMovie(movie._id);
-    }
-    catch (ex) {
-        if (ex.response && ex.response.status === 404)
-            toast.error('This movie has already been deleted');
+      } catch (ex) {
+        if (ex.response && ex.response.status === 404) console.log("x");
+        toast.error("This movie has already been deleted.");
 
-        this.setState({ movies: this.originalMovie});
-    }
-  };
+        this.setState({ movies: originalMovies });
+      }
+    };
 
   handleLike = movie => {
     const movies = [...this.state.movies];
