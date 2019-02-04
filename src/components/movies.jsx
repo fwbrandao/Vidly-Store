@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import MoviesTable from "./moviesTable";
 import FilterGenre from "./common/filterGenre";
 import Pagination from "./common/pagination";
 import PopularMovies from "./popular/popularMovies";
-import { getMovies, deleteMovie } from "../services/fakeMovieService";
-import { getGenres } from "../services/fakeGenreService";
+import { getMovies, deleteMovie } from "../services/movieService";
+import { getGenres } from "../services/genreService";
 import { paginate } from "../utils/paginate";
 import SearchBox from './searchBox';
 import _ from 'lodash';
@@ -22,16 +23,28 @@ class Movies extends Component {
         sortColumn: { path: "title", order: "asc" }
     };
 
-    componentDidMount() {
-        const genres = [{ _id: "", name: "All Genres" }, ...getGenres()];
-        this.setState({ movies: getMovies(), genres });
+    async componentDidMount() {
+        const { data } = await getGenres();
+        const genres = [{ _id: "", name: "All Genres" }, ...data];
+
+        const { data: movies} = await getMovies();
+        this.setState({ movies, genres });
       }
 
-  handleDelete = movie => {
-    const movies = this.state.movies.filter(m => m._id !== movie._id);
+  handleDelete = async movie => {
+    const originalMovie = this.state.movies;
+    const movies = originalMovie.movies.filter(m => m._id !== movie._id);
     this.setState({ movies: movies });
 
-    deleteMovie(movie._id);
+    try {
+        await deleteMovie(movie._id);
+    }
+    catch (ex) {
+        if (ex.response && ex.response.status === 404)
+            toast.error('This movie has already been deleted');
+
+        this.setState({ movies: this.originalMovie});
+    }
   };
 
   handleLike = movie => {
@@ -92,7 +105,7 @@ class Movies extends Component {
         searchQuery
         } = this.state;
 
-        if (count === 0) return <p>There are no Movies to display!</p>;
+        if (count === 0) return <p>There are no Movies to display, sorry for the inconvenience!</p>;
 
         const {totalCount, data: movies} = this.getPageData();
 

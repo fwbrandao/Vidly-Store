@@ -31,13 +31,13 @@ class PopularMovies extends Component {
                 <p className="header-card-sponsor">January</p>
             </header>
             {movies.map(movie => (
-            <div className="mini-card-grid">
+            <div key={movie.id} className="mini-card-grid">
                 <article className="mini-card module module-article article">
                 <header className="mini-article-card-header">
                     <div className="mini-article-card-title">
                     <div className="mini-article-subhead">
                     Movie
-                        <time datetime="2019-01-01">Jan 1, 2019</time>
+                        <time dateTime="2019-01-01">Jan 1, 2019</time>
                     </div>
                     </div>
                     <Link to={`/movies/${movie._id}`}>
