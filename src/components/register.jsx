@@ -18,8 +18,14 @@ class RegisterForm extends Form {
     // call the server
     doSubmit = async () => {
         try {
-            await userService.register(this.state.data);
+            // Json web token
+            const response = await userService.register(this.state.data);
+            // saves JWT in the browser localStorage
+            localStorage.setItem('token', response.headers['x-auth-token']);
+            // redirects user to homepage
+            this.props.history.push('/');
             console.log("Submitted");
+            console.log(response);
         } catch (ex) {
             if (ex.response && ex.response.status === 400) {
                 const errors = { ...this.state.errors };
