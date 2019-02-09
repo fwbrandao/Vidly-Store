@@ -1,7 +1,7 @@
 import React from 'react';
 import Form from './common/form';
 import Joi from 'joi-browser';
-import { login } from '../services/authService';
+import auth from '../services/authService';
 
 
 class LoginForm extends Form {
@@ -20,13 +20,10 @@ class LoginForm extends Form {
         try {
             const { data } = this.state;
             // Json web token
-            const { data: jwt } = await login(data.username, data.password);
-            // saves JWT in the browser localStorage
-            localStorage.setItem('token', jwt);
+            await auth.login(data.username, data.password);
             // redirects user to homepage
-            this.props.history.push('/');
+            window.location = '/';
             console.log("Submitted");
-            console.log(jwt);
         } catch (ex) {
             if (ex.response && ex.response.status === 400 ) {
                 const errors = { ...this.state.errors };

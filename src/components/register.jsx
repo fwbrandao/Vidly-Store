@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from './common/form';
 import Joi from 'joi-browser';
+import auth from '../services/authService';
 import * as userService from '../services/userService';
 
 class RegisterForm extends Form {
@@ -21,7 +22,7 @@ class RegisterForm extends Form {
             // Json web token
             const response = await userService.register(this.state.data);
             // saves JWT in the browser localStorage
-            localStorage.setItem('token', response.headers['x-auth-token']);
+            auth.loginWithJwt(response.headers['x-auth-token']);
             // redirects user to homepage
             this.props.history.push('/');
             console.log("Submitted");
