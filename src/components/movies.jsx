@@ -105,7 +105,7 @@ class Movies extends Component {
         searchQuery
         } = this.state;
 
-        if (count === 0) return <p>There are no Movies to display, sorry for the inconvenience!</p>;
+        // if (count === 0) return <p>There are no Movies to display, sorry for the inconvenience!</p>;
 
         const {totalCount, data: movies} = this.getPageData();
 
