@@ -97,6 +97,7 @@ class Movies extends Component {
 
     render() {
         const { length: count } = this.state.movies;
+        const { user } = this.props;
         const {
         currentPage,
         pageSize,
@@ -122,10 +123,10 @@ class Movies extends Component {
         <div className="typewriter">
             <h1>Welcome to Vidly</h1>
         </div>
-        <Link
+        {user && <Link
             className="btn btn-primary addBtn"
             to="/movies/new">Add New Movie
-        </Link>
+        </Link>}
         <p className="moviesCount" ><span>Showing {totalCount} Movies.</span></p>
         <SearchBox value={searchQuery} onChange={this.handleSearch} />
           <MoviesTable
