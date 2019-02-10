@@ -30,12 +30,11 @@ class Form extends Component {
         e.preventDefault();
 
         const errors = this.validate();
-        console.log(errors);
         this.setState({ errors: errors || {} });
         if (errors) return;
 
         this.doSubmit();
-    };
+      };
 
     handleChange = ({ currentTarget: input }) => {
 
