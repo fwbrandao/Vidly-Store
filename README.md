@@ -1,4 +1,4 @@
-Live Project: tps://stark-cove-11844.herokuapp.com
+Live Project: https://stark-cove-11844.herokuapp.com
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
