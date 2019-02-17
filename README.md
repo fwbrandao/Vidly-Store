@@ -1,5 +1,8 @@
 Live Project: https://stark-cove-11844.herokuapp.com
 
+![screenshot 2019-02-17 at 15 23 55](https://user-images.githubusercontent.com/33375433/52915133-4391fe00-32c8-11e9-9507-bb81a75e4330.png)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
