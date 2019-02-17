@@ -7,7 +7,7 @@ const NavBar = ({ user }) => {
                 <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="container collapse navbar-collapse" id="navbarNav">
-                <div className="navbar-nav">
+                <div className="nav nav-pills">
                     <Link className="navbar-brand" to="/">Vidly</Link>
                     <NavLink className="nav-link nav-item" to="/movies">Movies <span className="sr-only">(current)</span></NavLink>
                     <NavLink className="nav-link nav-item" to="/customers">Customers</NavLink>

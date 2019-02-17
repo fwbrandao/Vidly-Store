@@ -13,38 +13,38 @@ import _ from 'lodash';
 import "./movies.css";
 
 class Movies extends Component {
-    state = {
-        movies: [],
-        genres: [],
-        currentPage: 1,
-        pageSize: 4,
-        searchQuery: "",
-        selectedGenre: null,
-        sortColumn: { path: "title", order: "asc" }
-    };
+  state = {
+    movies: [],
+    genres: [],
+    currentPage: 1,
+    pageSize: 4,
+    searchQuery: "",
+    selectedGenre: null,
+    sortColumn: { path: "title", order: "asc" }
+  };
 
-    async componentDidMount() {
-      const { data } = await getGenres();
-      const genres = [{ _id: "", name: "All Genres" }, ...data];
+  async componentDidMount() {
+    const { data } = await getGenres();
+    const genres = [{ _id: "", name: "All Genres" }, ...data];
 
-      const { data: movies } = await getMovies();
-      this.setState({ movies, genres });
+    const { data: movies } = await getMovies();
+    this.setState({ movies, genres });
+  }
+
+  handleDelete = async movie => {
+    const originalMovies = this.state.movies;
+    const movies = originalMovies.filter(m => m._id !== movie._id);
+    this.setState({ movies });
+
+    try {
+      await deleteMovie(movie._id);
+    } catch (ex) {
+      if (ex.response && ex.response.status === 404) console.log("x");
+      toast.error("This movie has already been deleted.");
+
+      this.setState({ movies: originalMovies });
     }
-
-    handleDelete = async movie => {
-      const originalMovies = this.state.movies;
-      const movies = originalMovies.filter(m => m._id !== movie._id);
-      this.setState({ movies });
-
-      try {
-        await deleteMovie(movie._id);
-      } catch (ex) {
-        if (ex.response && ex.response.status === 404) console.log("x");
-        toast.error("This movie has already been deleted.");
-
-        this.setState({ movies: originalMovies });
-      }
-    };
+  };
 
   handleLike = movie => {
     const movies = [...this.state.movies];
@@ -67,47 +67,47 @@ class Movies extends Component {
   };
 
   handleSort = sortColumn => {
-      this.setState({ sortColumn });
-    };
+    this.setState({ sortColumn });
+  };
 
-    getPageData = () => {
+  getPageData = () => {
     const {
-            pageSize,
-            currentPage,
-            sortColumn,
-            selectedGenre,
-            searchQuery,
-            movies: allMovies
-        } = this.state;
+      pageSize,
+      currentPage,
+      sortColumn,
+      selectedGenre,
+      searchQuery,
+      movies: allMovies
+    } = this.state;
 
-        let filtered = allMovies;
-        if (searchQuery)
-        filtered = allMovies.filter(m =>
-            m.title.toLowerCase().startsWith(searchQuery.toLowerCase())
-        );
-        else if (selectedGenre && selectedGenre._id)
-        filtered = allMovies.filter(m => m.genre._id === selectedGenre._id);
+    let filtered = allMovies;
+    if (searchQuery)
+      filtered = allMovies.filter(m =>
+        m.title.toLowerCase().startsWith(searchQuery.toLowerCase())
+      );
+    else if (selectedGenre && selectedGenre._id)
+      filtered = allMovies.filter(m => m.genre._id === selectedGenre._id);
 
-        const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
+    const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
 
-        const movies = paginate(sorted, currentPage, pageSize);
+    const movies = paginate(sorted, currentPage, pageSize);
 
-        return { totalCount: filtered.length, data: movies };
-    };
+    return { totalCount: filtered.length, data: movies };
+  };
 
-    render() {
-        const { length: count } = this.state.movies;
-        const { user } = this.props;
-        const {
-        currentPage,
-        pageSize,
-        sortColumn,
-        searchQuery
-        } = this.state;
+  render() {
+    const { length: count } = this.state.movies;
+    const { user } = this.props;
+    const {
+      currentPage,
+      pageSize,
+      sortColumn,
+      searchQuery
+    } = this.state;
 
-        // if (count === 0) return <p>There are no Movies to display, sorry for the inconvenience!</p>;
+    // if (count === 0) return <p>There are no Movies to display, sorry for the inconvenience!</p>;
 
-        const {totalCount, data: movies} = this.getPageData();
+    const { totalCount, data: movies } = this.getPageData();
 
     return (
       <div className="row">
@@ -120,16 +120,17 @@ class Movies extends Component {
         </div>
 
         <div className="col-md-9">
-        <div className="typewriter">
+          <div className="typewriter">
             <h1>Welcome to Vidly</h1>
-        </div>
-        {user && <Link
+          </div>
+          {user && <Link
             className="btn btn-primary addBtn"
             to="/movies/new">Add New Movie
         </Link>}
-        <p className="moviesCount" ><span>Showing {totalCount} Movies.</span></p>
-        <SearchBox value={searchQuery} onChange={this.handleSearch} />
+          <p className="moviesCount" ><span>Showing {totalCount} Movies.</span></p>
+          <SearchBox value={searchQuery} onChange={this.handleSearch} />
           <MoviesTable
+            className="col-md-12"
             movies={movies}
             sortColumn={sortColumn}
             onLike={this.handleLike}
@@ -144,7 +145,8 @@ class Movies extends Component {
           />
         </div>
         <div>
-            <PopularMovies />
+          <PopularMovies
+          className="col-md-12"/>
         </div>
       </div>
     );

@@ -30,6 +30,12 @@
       blink-caret .5s step-end infinite;
   }
 
+  @media only screen and (max-width: 600px) {
+    .typewriter h1 {
+      display: none;
+    }
+  }
+
   /* The typing effect */
   @keyframes typing {
     from { width: 0 }
@@ -54,3 +60,13 @@
     background-color: #9A0BFF !important;
     border: 1px solid white !important;
 }
+
+/* .movieTable {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.popularMovies {
+  overflow: hidden;
+} */
