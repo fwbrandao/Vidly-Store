@@ -1,4 +1,4 @@
-Live Project: https://stark-cove-11844.herokuapp.com
+Live Project: https://vidly-store-fernando-brandao.herokuapp.com
 
 ![screenshot 2019-02-17 at 15 23 55](https://user-images.githubusercontent.com/33375433/52915133-4391fe00-32c8-11e9-9507-bb81a75e4330.png)
 
