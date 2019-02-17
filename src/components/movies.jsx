@@ -127,7 +127,7 @@ class Movies extends Component {
             className="btn btn-primary addBtn"
             to="/movies/new">Add New Movie
         </Link>}
-          <p className="moviesCount" ><span>Showing {totalCount} from Movies database.</span></p>
+          <p className="moviesCount" ><span>Showing {totalCount} Movies from database.</span></p>
           <SearchBox value={searchQuery} onChange={this.handleSearch} />
           <MoviesTable
             className="col-md-12"
