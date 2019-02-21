@@ -24,7 +24,7 @@ class MovieForm extends Form {
         this.setState({ genres });
     }
 
-    async populateMovies() {
+    async populateMovie() {
         try {
             const movieId = this.props.match.params.id;
             if (movieId === 'new') return;
@@ -40,7 +40,7 @@ class MovieForm extends Form {
 
     async componentDidMount() {
         await this.populateGenres();
-        await this.populateMovies();
+        await this.populateMovie();
     };
 
     mapToViewModel(movie) {
